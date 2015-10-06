@@ -1,0 +1,243 @@
+
+**** Build of configuration Debug for project WashTimer ****
+
+"C:\\Programming\\CCS6\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --use_hw_mpy=none --include_path="C:/Programming/CCS6/ccsv6/ccs_base/msp430/include" --include_path="C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2452__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"../main.c", line 83: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 126: remark #1528-D: (ULP 3.1) Detected flag polling using ADC10BUSY. Recommend using an interrupt combined with enter LPMx and ISR
+"../main.c", line 173: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 212: remark #1538-D: (ULP 10.1) ISR Timer_A calls function getCDSData. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 266: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 274: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 280: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 296: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 307: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 315: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 323: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 335: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 337: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+'Building target: WashTimer.out'
+'Invoking: MSP430 Linker'
+"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --use_hw_mpy=none --advice:power=all -g --define=__MSP430G2452__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"WashTimer.map" --heap_size=80 --stack_size=80 -i"C:/Programming/CCS6/ccsv6/ccs_base/msp430/include" -i"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="WashTimer_linkInfo.xml" --use_hw_mpy=none --rom_model -o "WashTimer.out" "./main.obj" "../lnk_msp430g2452.cmd"  -l"libc.a" 
+<Linking>
+'Finished building target: WashTimer.out'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project WashTimer ****
+
+"C:\\Programming\\CCS6\\ccsv6\\utils\\bin\\gmake" -k all 
+gmake: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project WashTimer ****
+
+"C:\\Programming\\CCS6\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --use_hw_mpy=none --include_path="C:/Programming/CCS6/ccsv6/ccs_base/msp430/include" --include_path="C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2452__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"../main.c", line 85: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 128: remark #1528-D: (ULP 3.1) Detected flag polling using ADC10BUSY. Recommend using an interrupt combined with enter LPMx and ISR
+"../main.c", line 275: error #20: identifier "last_user_input_sec" is undefined
+"../main.c", line 175: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 228: remark #1538-D: (ULP 10.1) ISR Timer_A calls function getCDSData. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 284: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 292: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 298: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 314: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 325: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 333: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 341: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 353: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 355: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+
+1 error detected in the compilation of "../main.c".
+>> Compilation failure
+gmake: *** [main.obj] Error 1
+gmake: Target `all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project WashTimer ****
+
+"C:\\Programming\\CCS6\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --use_hw_mpy=none --include_path="C:/Programming/CCS6/ccsv6/ccs_base/msp430/include" --include_path="C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2452__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"../main.c", line 85: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 128: remark #1528-D: (ULP 3.1) Detected flag polling using ADC10BUSY. Recommend using an interrupt combined with enter LPMx and ISR
+"../main.c", line 275: error #20: identifier "last_user_input_sec" is undefined
+"../main.c", line 175: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 228: remark #1538-D: (ULP 10.1) ISR Timer_A calls function getCDSData. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 284: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 292: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 298: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 314: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 325: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 333: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 341: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 353: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 355: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+
+1 error detected in the compilation of "../main.c".
+>> Compilation failure
+gmake: *** [main.obj] Error 1
+gmake: Target `all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project WashTimer ****
+
+"C:\\Programming\\CCS6\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --use_hw_mpy=none --include_path="C:/Programming/CCS6/ccsv6/ccs_base/msp430/include" --include_path="C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2452__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"../main.c", line 85: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 128: remark #1528-D: (ULP 3.1) Detected flag polling using ADC10BUSY. Recommend using an interrupt combined with enter LPMx and ISR
+"../main.c", line 175: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 228: remark #1538-D: (ULP 10.1) ISR Timer_A calls function getCDSData. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 284: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 292: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 298: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 314: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 325: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 333: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 341: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 353: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 355: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+'Building target: WashTimer.out'
+'Invoking: MSP430 Linker'
+"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --use_hw_mpy=none --advice:power=all -g --define=__MSP430G2452__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"WashTimer.map" --heap_size=80 --stack_size=80 -i"C:/Programming/CCS6/ccsv6/ccs_base/msp430/include" -i"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="WashTimer_linkInfo.xml" --use_hw_mpy=none --rom_model -o "WashTimer.out" "./main.obj" "../lnk_msp430g2452.cmd"  -l"libc.a" 
+<Linking>
+'Finished building target: WashTimer.out'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project WashTimer ****
+
+"C:\\Programming\\CCS6\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --use_hw_mpy=none --include_path="C:/Programming/CCS6/ccsv6/ccs_base/msp430/include" --include_path="C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2452__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"../main.c", line 85: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 128: remark #1528-D: (ULP 3.1) Detected flag polling using ADC10BUSY. Recommend using an interrupt combined with enter LPMx and ISR
+"../main.c", line 175: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 228: remark #1538-D: (ULP 10.1) ISR Timer_A calls function getCDSData. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 284: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 292: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 298: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 314: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 334: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 351: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 359: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 371: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 373: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+'Building target: WashTimer.out'
+'Invoking: MSP430 Linker'
+"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --use_hw_mpy=none --advice:power=all -g --define=__MSP430G2452__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"WashTimer.map" --heap_size=80 --stack_size=80 -i"C:/Programming/CCS6/ccsv6/ccs_base/msp430/include" -i"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="WashTimer_linkInfo.xml" --use_hw_mpy=none --rom_model -o "WashTimer.out" "./main.obj" "../lnk_msp430g2452.cmd"  -l"libc.a" 
+<Linking>
+'Finished building target: WashTimer.out'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project WashTimer ****
+
+"C:\\Programming\\CCS6\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --use_hw_mpy=none --include_path="C:/Programming/CCS6/ccsv6/ccs_base/msp430/include" --include_path="C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2452__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"../main.c", line 85: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 128: remark #1528-D: (ULP 3.1) Detected flag polling using ADC10BUSY. Recommend using an interrupt combined with enter LPMx and ISR
+"../main.c", line 175: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 228: remark #1538-D: (ULP 10.1) ISR Timer_A calls function getCDSData. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 284: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 292: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 298: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 314: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 334: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 351: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 359: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 371: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 373: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+'Building target: WashTimer.out'
+'Invoking: MSP430 Linker'
+"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --use_hw_mpy=none --advice:power=all -g --define=__MSP430G2452__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"WashTimer.map" --heap_size=80 --stack_size=80 -i"C:/Programming/CCS6/ccsv6/ccs_base/msp430/include" -i"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="WashTimer_linkInfo.xml" --use_hw_mpy=none --rom_model -o "WashTimer.out" "./main.obj" "../lnk_msp430g2452.cmd"  -l"libc.a" 
+<Linking>
+'Finished building target: WashTimer.out'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project WashTimer ****
+
+"C:\\Programming\\CCS6\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --use_hw_mpy=none --include_path="C:/Programming/CCS6/ccsv6/ccs_base/msp430/include" --include_path="C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2452__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"../main.c", line 82: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 125: remark #1528-D: (ULP 3.1) Detected flag polling using ADC10BUSY. Recommend using an interrupt combined with enter LPMx and ISR
+"../main.c", line 172: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 225: remark #1538-D: (ULP 10.1) ISR Timer_A calls function getCDSData. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 281: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 289: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 295: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 311: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 331: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 348: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 356: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 368: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 370: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+'Building target: WashTimer.out'
+'Invoking: MSP430 Linker'
+"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --use_hw_mpy=none --advice:power=all -g --define=__MSP430G2452__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal -z -m"WashTimer.map" --heap_size=80 --stack_size=80 -i"C:/Programming/CCS6/ccsv6/ccs_base/msp430/include" -i"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="WashTimer_linkInfo.xml" --use_hw_mpy=none --rom_model -o "WashTimer.out" "./main.obj" "../lnk_msp430g2452.cmd"  -l"libc.a" 
+<Linking>
+'Finished building target: WashTimer.out'
+' '
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project WashTimer ****
+
+"C:\\Programming\\CCS6\\ccsv6\\utils\\bin\\gmake" -k all 
+'Building file: ../main.c'
+'Invoking: MSP430 Compiler'
+"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --use_hw_mpy=none --include_path="C:/Programming/CCS6/ccsv6/ccs_base/msp430/include" --include_path="C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --advice:power=all -g --define=__MSP430G2452__ --diag_warning=225 --display_error_number --diag_wrap=off --printf_support=minimal --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+"../main.c", line 83: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 126: remark #1528-D: (ULP 3.1) Detected flag polling using ADC10BUSY. Recommend using an interrupt combined with enter LPMx and ISR
+"../main.c", line 173: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 222: remark #1538-D: (ULP 10.1) ISR Timer_A calls function getCDSData. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 278: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 286: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 292: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 308: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 328: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 345: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 353: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 365: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../main.c", line 367: remark #1538-D: (ULP 10.1) ISR Timer_A calls function StartTimer. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+'Finished building: ../main.c'
+' '
+'Building target: WashTimer.out'
+'Invoking: MSP430 Linker'
+"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/bin/cl430" -vmsp --abi=eabi --use_hw_mpy=none --advice:power=all -g --define=__MSP430G2452__ --diag_warning=225 --diag_wrap=off --display_error_number --printf_support=minimal -z -m"WashTimer.map" --heap_size=80 --stack_size=80 -i"C:/Programming/CCS6/ccsv6/ccs_base/msp430/include" -i"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/lib" -i"C:/Programming/CCS6/ccsv6/tools/compiler/ti-cgt-msp430_4.4.5/include" --reread_libs --warn_sections --diag_wrap=off --display_error_number --xml_link_info="WashTimer_linkInfo.xml" --use_hw_mpy=none --rom_model -o "WashTimer.out" "./main.obj" "../lnk_msp430g2452.cmd"  -l"libc.a" 
+<Linking>
+'Finished building target: WashTimer.out'
+' '
+
+**** Build Finished ****

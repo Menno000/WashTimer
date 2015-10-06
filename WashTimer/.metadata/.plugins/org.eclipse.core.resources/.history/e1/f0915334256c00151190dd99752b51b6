@@ -1,0 +1,253 @@
+/*******************************************************************************
+* MSP430 WASH TIMER
+*
+* DESCRIPTION: The wash timer provides two seperate timers one for 20 seconds
+* for washing hands and one for 1 minute for brushing teeth.
+*                                  -----------------
+*                      Left Btn ->|2.0           1.0|<- NC
+*                      Switch A ->|2.1  MSP 430  1.1|-> UART (0)
+*                      Switch B ->|2.2    2452   1.2|-> UART (1)
+*                    Center Btn ->|2.3           1.3|<- NC
+*                     Right Btn ->|2.4           1.4|<- NC
+*                      Blue LED <-|2.5           1.5|<- SPKR (NC)
+*                     Green LED <-|2.6           1.6|<- NC
+*                       Red LED <-|2.7           1.7|<- CDS_CELL
+*                                 |                 |
+*                                 |                 |
+*                                 |                 |
+*                                 |                 |
+*                                  -----------------
+*
+* Author: Jonathan L Clark
+* Date: 10/6/2015, Code base ported from flashlight 5, created pin mappings
+*******************************************************************************/
+
+#include <msp430.h>
+
+#define LEFT_BTN 0x01
+#define SWITCH_A 0x02
+#define SWITCH_B 0x04
+#define CENTER_BTN 0x08
+#define RIGHT_BTN 0x10
+#define BLUE_LED 0x20
+#define GREEN_LED 0x40
+#define RED_LED 0x80
+#define CDS_CELL 0x80
+#define NUM_TIMERS 4
+#define BUTTON_TIMER 0
+#define ADC_TIMER 1
+#define UI_TIMER 2
+#define STROBE_TIMER 3
+
+#define STATE_STANDBY 0
+#define STATE_TIMERRUNNING 1
+
+unsigned int ms_ticks = 0;
+unsigned int timerIndex = 0;
+unsigned int cds_cellValue = 0;
+unsigned int led_index = 0;
+unsigned int pwm_ms_off = 0;
+unsigned int pwm_index = 0;
+unsigned int strobe_ms = 100;
+unsigned int last_user_input_ms = 0;
+unsigned int last_user_input_min = 0;
+char leds_on = 1;
+char BUTTON_LEFTFLAG = 0;
+char BUTTON_RIGHTFLAG = 0;
+char BUTTON_CENTERFLAG = 0;
+char timer_state = 0;
+char timer_run_iterations = 0;
+
+typedef struct
+{
+   unsigned int Time;
+   unsigned int NextTime;
+   char Flag;
+   char Enabled;
+
+}_timer;
+
+_timer timers[NUM_TIMERS];
+
+/***************************************************************
+* INIT TIMERS
+* DESCRIPTION: Initialize all timers and set there initial values
+****************************************************************/
+void InitTimers(void)
+{
+	for (timerIndex = 0; timerIndex < NUM_TIMERS; timerIndex++)
+	{
+		timers[timerIndex].Enabled = 0;
+		timers[timerIndex].Flag = 0;
+	}
+}
+
+/***************************************************************
+* START TIMER
+* DESCRIPTION: Starts the timer with the input char index
+****************************************************************/
+void StartTimer(unsigned timer, unsigned int runTime)
+{
+   timers[timer].Enabled = 0;
+   timers[timer].Flag = 0;
+   timers[timer].Time = runTime;
+   timers[timer].NextTime = timers[timer].Time + ms_ticks;
+   timers[timer].Enabled = 1;
+}
+
+/***************************************************************
+* START TIMER
+* DESCRIPTION: Starts the timer with the input char index
+****************************************************************/
+char CheckTimer(unsigned timer)
+{
+   if (timers[timer].Flag == 1)
+   {
+	   return 1;
+   }
+   return 0;
+}
+
+/*******************************************************************************
+* GET CDS DATA
+* DESCRIPTION: Get data from the CDS cell
+*******************************************************************************/
+void getCDSData(void)
+{
+   ADC10CTL0 = SREF_0 + ADC10SHT_2 + REFON + ADC10ON;
+   ADC10CTL1 = CONSEQ_0 + INCH_7;                    //CDS Cell
+   ADC10CTL0 |= ENC + ADC10SC;                       // Sampling and conversion start
+   while (ADC10CTL1 & ADC10BUSY);
+   cds_cellValue = ADC10MEM;
+
+}
+
+/*************************************************
+* MAIN
+*************************************************/
+int main(void)
+{
+   WDTCTL = WDTPW + WDTHOLD;             // Stop watchdog timer
+   P2SEL = 0x00;                         // Setup Port 2 for usage
+   P1DIR |= 0x00;                        // Setup Port 1 I/O
+   P2DIR |= 0xE0;                        // Setup Port 2 I/O
+   P1OUT = 0x00;                         // Clear P1
+   P2OUT = 0x00;
+   ADC10AE0 |= CDS_CELL;
+   InitTimers();
+   P2OUT |= RED_LED;                      //Initial mode (Red LED is on)
+   CCTL0 = CCIE;                         // CCR0 interrupt enabled
+   CCR0 = 1045;                            // Set timer speed to 1ms intervals
+   TACTL = TASSEL_2 + MC_1;              // SMCLK, count mode
+   StartTimer(BUTTON_TIMER, 10);        //Button timer, 100ms intervals
+   StartTimer(ADC_TIMER, 200);        //Update ADC value every 100ms
+   StartTimer(UI_TIMER, 200);        //Check for user input
+
+   _BIS_SR(LPM0_bits + GIE);             // Enter LPM0 w/ interrupt
+
+}
+
+// Timer A0 interrupt service routine
+#pragma vector=TIMER0_A0_VECTOR
+__interrupt void Timer_A (void)
+{
+   ms_ticks++;
+   last_user_input_ms++;
+   if (last_user_input_ms >= 60000) //One minute since last user input
+   {
+	   last_user_input_min++;
+	   last_user_input_ms = 0;
+	   if (last_user_input_min == 20) //20 minutes with no user input, set to mode 2 (flashlight off unless button press, to save battery)
+	   {
+		   timer_state = 2;
+		   last_user_input_min = 0;
+
+	   }
+   }
+   if (timers[BUTTON_TIMER].Enabled == 1)
+   {
+      if (timers[BUTTON_TIMER].NextTime == ms_ticks) //Timer expired
+	  {
+    	  timers[BUTTON_TIMER].NextTime = timers[BUTTON_TIMER].Time + ms_ticks;
+    	  BUTTON_LEFTFLAG = 0;
+    	  BUTTON_RIGHTFLAG = 0;
+    	  BUTTON_CENTERFLAG = 0;
+    	  if ((P2IN & LEFT_BTN) == LEFT_BTN)
+    	  {
+    	     BUTTON_LEFTFLAG = 1;
+    	  }
+    	  if ((P2IN & RIGHT_BTN) == RIGHT_BTN)
+    	  {
+    	     BUTTON_RIGHTFLAG = 1;
+    	  }
+    	  if ((P2IN & CENTER_BTN) == CENTER_BTN) //Change LED color
+    	  {
+    	      BUTTON_CENTERFLAG = 1;
+    	  }
+	  }
+   }
+   if (timers[ADC_TIMER].Enabled == 1)
+   {
+      if (timers[ADC_TIMER].NextTime == ms_ticks)
+      {
+    	  timers[ADC_TIMER].NextTime = timers[ADC_TIMER].Time + ms_ticks;
+    	  getCDSData();
+	  }
+   }
+   if (timers[UI_TIMER].Enabled == 1)
+   {
+      if (timers[UI_TIMER].NextTime == ms_ticks)
+      {
+         timers[UI_TIMER].Flag = 1;
+         timers[UI_TIMER].Enabled = 0;
+      }
+   }
+   if (timers[STROBE_TIMER].Enabled == 1)
+   {
+      if (timers[STROBE_TIMER].NextTime == ms_ticks)
+      {
+         timers[STROBE_TIMER].Flag = 1;
+		 timers[STROBE_TIMER].Enabled = 0;
+		 if (timer_state == STATE_TIMERRUNNING) //Strobe mode
+		 {
+             if (leds_on == 0)
+             {
+            	 P2OUT |= BLUE_LED;
+            	 leds_on = 1;
+             }
+             else
+             {
+            	 P2OUT &= ~BLUE_LED;
+            	 leds_on = 0;
+             }
+             StartTimer(STROBE_TIMER, strobe_ms);
+		 }
+	  }
+   }
+   if (timers[UI_TIMER].Flag) //Time to check for user input
+   {
+	   if (BUTTON_CENTERFLAG)
+	   {
+
+	      StartTimer(UI_TIMER, 200);
+	   }
+	   if (BUTTON_LEFTFLAG)
+	   {
+		   //We hit the start button in standby mode
+		   if (timer_state == STATE_STANDBY)
+		   {
+			   timer_state = STATE_TIMERRUNNING;
+			   timer_run_iterations = 20000 / 100; //For a 20 second timer
+			   StartTimer(STROBE_TIMER, strobe_ms);
+
+		   }
+		   StartTimer(UI_TIMER, 200);
+	   }
+	   if (BUTTON_RIGHTFLAG)
+	   {
+
+		   StartTimer(UI_TIMER, 200);
+	   }
+   }
+}
+
